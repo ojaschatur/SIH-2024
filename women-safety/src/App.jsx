@@ -6,10 +6,9 @@ import "./App.css";
 function App() {
   return (
     <>
-      <h1>Hello</h1>
       <BrowserRouter>
         <Routes>
-          {/* <Route path="/" element={<Home />} /> */}
+          <Route path="/" element={<Home />} />
           {/* <Route path="/:id/home" element={<Header />} />
               <Route path="/:id/heatmap" element={<Header />} />
               <Route path="/:id/map" element={<Header />} />

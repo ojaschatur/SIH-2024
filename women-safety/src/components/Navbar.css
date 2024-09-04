@@ -1,0 +1,55 @@
+.navbar {
+    height: 5rem;
+    font-size: 2.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 2rem 5rem;
+  
+}
+
+p {
+    font-weight: 600;
+    color: #161616;
+}
+
+span {
+    background: #5C45FD;
+    background: linear-gradient(to right, #5C45FD 0%, #A89BFF 100%);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.links {
+    display: flex;
+    gap: 10rem;
+}
+
+.link {
+    text-decoration: none;
+    font-size: 2rem;
+    color: #161616;
+    transition: color 0.5s, background 0.5s; /* Apply transition to both color and background */
+}
+
+.link:hover {
+    background: #5C45FD;
+    background: linear-gradient(to right, #5C45FD 0%, #A89BFF 100%);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition-delay: 0.5s; /* Delay the transition when hovering */
+}
+
+button {
+    width: 18rem;
+    height: 4.5rem;
+    border-radius: 1rem;
+    border: none;
+    background: linear-gradient(to right, #5C45FD 0%, #A89BFF 100%);
+    font-size: 2.4rem;
+    cursor: pointer;
+}
+
+button:hover {
+    box-shadow: 0px 2px 5px rgba(22, 22, 22, 0.5);
+}
