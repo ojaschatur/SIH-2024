@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./mapcontent.css";
 
-import cctvFootage from "../photos/cctvFootage.svg";
+import cctvFootage from "./photos/cctvFootage.svg";
 import LeafletMap from "./Leaflet";
 
 export default function MapContent() {
