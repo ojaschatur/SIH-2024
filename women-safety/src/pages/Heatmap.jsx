@@ -15,7 +15,7 @@ export default function MapPage() {
       <Navbar />
       <div className="heatmapPage">
         <div className="heatmapText">
-          <h1>GET <span>HEATMAP</span> </h1>
+          <h1><span>HEATMAP</span> </h1>
           <p>
             This heatmap visually represents the distribution and <span>frequency of crimes</span> against women across different states of India, with darker areas indicating higher crime rates. By providing <span>real-time insights</span>, it helps identify <span>hotspots</span> and <span>trends</span> to enhance safety measures and law enforcement response.
           </p>
