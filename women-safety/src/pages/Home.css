@@ -39,7 +39,10 @@ body {
     margin-top: 12rem;
 }
 
-
+.women-image{
+    height: 40rem;
+    width: auto;
+}
 
 .home-title {
     font-weight: 600;
