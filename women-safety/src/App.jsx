@@ -2,6 +2,7 @@ import { BrowserRouter, Routes } from "react-router-dom";
 import { Route } from "react-router-dom";
 import Login from "./pages/Login";
 import Home from "./pages/Home";
+import Heatmap from "./pages/Heatmap";
 import "./App.css";
 
 function App() {
@@ -15,8 +16,8 @@ function App() {
               <Route path="/:id/map" element={<Header />} />
               <Route path="/:id/logs" element={<Header />} /> */}
           <Route path="/home" element={<Home />} />
-          {/* <Route path="/heatmap" element={<Header />} />
-          <Route path="/map" element={<Header />} />
+          <Route path="/heatmap" element={<Heatmap />} />
+          {/* <Route path="/map" element={<Header />} />
           <Route path="/logs" element={<Header />} />  */}
         </Routes>
       </BrowserRouter>

@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import Navbar from "../../components/navbar/navbar";
+import Navbar from "../components/Navbar";
 import "./Heatmap.css";
 
 export default function MapPage() {
@@ -14,17 +14,14 @@ export default function MapPage() {
     <div>
       <Navbar />
       <div className="heatmapPage">
-        <h1>HeatMap:</h1>
+        <h1>GET  <span>HEATMAP:</span></h1>
         <p>
-          Explore our interactive heatmap showcasing the distribution of crimes
-          against women across India. This visual tool highlights high-risk
-          areas, helping to raise awareness and support efforts to enhance
-          safety and protection for women nationwide.
+            This heatmap visually represents the distribution and <span>frequency of crimes</span>frequency of crimes against women across different states of India, with darker areas indicating higher crime rates. By providing <span>real-time insights</span>, it helps identify <span>hotspots</span> and <span>trends</span> to enhance safety measures and law enforcement response.
         </p>
         <div
           className="tableauPlaceholder"
           id="viz1725183408128"
-          style={{ position: "relative", width: "110%", height: "600px", margin: "0 auto" }}
+          style={{ position: "relative", width: "100vw", height: "100vh", margin: "0 auto", transform: "translateX(-19.5%)" }}
           dangerouslySetInnerHTML={{
             __html: `
               <noscript>
