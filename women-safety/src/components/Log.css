@@ -39,10 +39,38 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 67px;
+
 }
 
 .logImg {
-    width: 50px;
-    height: 50px;
-    margin-right: 20px;
+    width: 20rem;
+    height: 20rem;
+    margin-right: 2rem;
+  }
+
+  .pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    align-items: center;
+  }
+  
+  .pagination button {
+    margin: 0 5px;
+    padding: 10px 15px;
+    border: none;
+    background-color: #f0f0f0;
+    cursor: pointer;
+  }
+  
+  .pagination button.active {
+    background-color: #5C45FD;
+    color: white;
+  }
+  
+  .pagination button:hover {
+    background-color: #ddd;
   }

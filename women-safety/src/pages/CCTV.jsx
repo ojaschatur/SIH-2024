@@ -6,6 +6,7 @@ export default function CCTV() {
         <div>
             <Navbar />
             <ModelComponent/>
+            
         </div>
     )
 }

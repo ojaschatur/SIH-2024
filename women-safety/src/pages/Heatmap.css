@@ -1,4 +1,5 @@
 .heatmapPage {
+    padding-top:45rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -31,3 +32,9 @@
     background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+
+.heatmapContainer {
+    width: 100%;
+    max-width: 130rem; /* Adjust this value to match the width of the p tag */
+    margin: 0 auto;
+  }

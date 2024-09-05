@@ -53,3 +53,7 @@ button {
 button:hover {
     box-shadow: 0px 2px 5px rgba(22, 22, 22, 0.5);
 }
+
+.navbar a.active {
+    color: #5C45FD;
+  }

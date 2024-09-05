@@ -26,9 +26,8 @@
     -webkit-text-fill-color: transparent;
 }
 
-.Model-component-img{
-    width: 100px;
-    height:auto;
-    border: 2px solid #000000;
-    padding-left: 20rem;
+.video-feed {
+    display: block;
+    padding-left: 20rem; 
+    max-width: 100%;
 }

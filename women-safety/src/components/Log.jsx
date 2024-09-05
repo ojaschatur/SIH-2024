@@ -1,8 +1,11 @@
-import { useEffect, useState } from 'react';
-import './Log.css';
+import { useState, useEffect } from "react";
+import cctvFootage from "./photos/cctvFootage.svg";
+import "./Log.css";
 
 function Log() {
   const [logs, setLogs] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const logsPerPage = 10;
 
   useEffect(() => {
     fetch('http://localhost:3000/logs')
@@ -11,12 +14,22 @@ function Log() {
       .catch((error) => console.error('Error fetching logs:', error));
   }, []);
 
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
+  const indexOfLastLog = currentPage * logsPerPage;
+  const indexOfFirstLog = indexOfLastLog - logsPerPage;
+  const currentLogs = logs.slice(indexOfFirstLog, indexOfLastLog);
+
+  const totalPages = Math.ceil(logs.length / logsPerPage);
+
   return (
     <div className="logContainer">
-      {logs.length > 0 ? (
-        logs.map((log, index) => (
+      {currentLogs.length > 0 ? (
+        currentLogs.map((log, index) => (
           <div key={index} className="log">
-            <img src="../assets/logs.png" alt="" className="logImg" />
+            <img src={cctvFootage} alt="Log Image" className="logImg" />
             <div className="logText">
               <div className="titles">
                 <p className="title">Timestamp: {new Date(log.timestamp).toLocaleString()}</p>
@@ -30,6 +43,18 @@ function Log() {
       ) : (
         <p>No logs available</p>
       )}
+
+      <div className="pagination">
+        {Array.from({ length: totalPages }, (_, index) => (
+          <button
+            key={index}
+            onClick={() => handlePageChange(index + 1)}
+            className={currentPage === index + 1 ? "active" : ""}
+          >
+            {index + 1}
+          </button>
+        ))}
+      </div>
     </div>
   );
 }

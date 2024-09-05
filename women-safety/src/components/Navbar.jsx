@@ -19,10 +19,10 @@ function Navbar() {
                 <p>DIVYA<span>DRISHTI</span></p>
 
                 <div className="links">
-                    <Link className="link" to='/home'>Home</Link>
-                    <Link className="link" to='/heatmap'>Heatmap</Link>
-                    <Link className="link" to='/map'>Maps</Link>
-                    <Link className="link" to='/logs'>Logs</Link>
+                    <Link className={`link ${location.pathname === '/home' ? 'active' : ''}`} to='/home'>Home</Link>
+                    <Link className={`link ${location.pathname === '/heatmap' ? 'active' : ''}`} to='/heatmap'>Heatmap</Link>
+                    <Link className={`link ${location.pathname === '/map' ? 'active' : ''}`} to='/map'>Maps</Link>
+                    <Link className={`link ${location.pathname === '/logs' ? 'active' : ''}`} to='/logs'>Logs</Link>
                 </div>
 
                 {/* Conditionally render buttons */}
