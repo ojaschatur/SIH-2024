@@ -26,3 +26,40 @@ body {
     margin-top: 200px;
     position: absolute;
 }
+
+.info-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    max-width: 80vw;
+    left: 50%;
+    top: 50%;
+    margin: 0 auto;
+    margin-top: 12rem;
+}
+
+
+
+.home-title {
+    font-weight: 600;
+    font-size: 64px;
+    line-height: 120%;
+    text-transform: uppercase;
+    color: #161616;
+}
+
+.home-description {
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 150%;
+
+    color: #161616;
+}
+
+span {
+    background: #5C45FD;
+    background: linear-gradient(to right, #5C45FD 0%, #A89BFF 100%);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
