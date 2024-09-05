@@ -12,7 +12,6 @@ const VideoFeed = () => {
                 src="http://localhost:5000/video_feed"
                 alt="Video Feed"
             />
-            <MapContent />
         </div>
     );
 };

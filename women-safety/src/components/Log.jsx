@@ -1,31 +1,36 @@
-import log from "../assets/logs.png";
-import "./Log.css";
+import { useEffect, useState } from 'react';
+import './Log.css';
 
-function Log(props) {
+function Log() {
+  const [logs, setLogs] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:3000/logs')
+      .then((response) => response.json())
+      .then((data) => setLogs(data))
+      .catch((error) => console.error('Error fetching logs:', error));
+  }, []);
+
   return (
-    
-      <div className="log">
-        <img src={log} alt="" className="logImg" />
-        <div className="logText">
-          <div className="titles">
-            <p className="title">Location:</p>
-            <p className="title">Date:</p>
-            <p className="title">Time:</p>
-            <p className="title">No. of Men:</p>
-            <p className="title">Latitude:</p>
-            <p className="title">Longitude:</p>
+    <div className="logContainer">
+      {logs.length > 0 ? (
+        logs.map((log, index) => (
+          <div key={index} className="log">
+            <img src="../assets/logs.png" alt="" className="logImg" />
+            <div className="logText">
+              <div className="titles">
+                <p className="title">Timestamp: {new Date(log.timestamp).toLocaleString()}</p>
+                <p className="title">Location: {log.location}</p>
+                <p className="title">Men Count: {log.men_count}</p>
+                <p className="title">Women Count: {log.women_count}</p>
+              </div>
+            </div>
           </div>
-          <div className="info">
-            <p>{props.location || "Location not available"}</p>
-            <p>{props.date || "Date not available"}</p>
-            <p>{props.time || "Time not available"}</p>
-            <p>{props.men || "Men count not available"}</p>
-            <p>{props.latitude || "Latitude not available"}</p>
-            <p>{props.longitude || "Longitude not available"}</p>
-          </div>
-        </div>
-      </div>
-
+        ))
+      ) : (
+        <p>No logs available</p>
+      )}
+    </div>
   );
 }
 
