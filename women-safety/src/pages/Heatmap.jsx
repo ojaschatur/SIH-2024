@@ -14,10 +14,14 @@ export default function MapPage() {
     <div>
       <Navbar />
       <div className="heatmapPage">
-        <h1>GET  <span>HEATMAP:</span></h1>
-        <p>
-            This heatmap visually represents the distribution and <span>frequency of crimes</span>frequency of crimes against women across different states of India, with darker areas indicating higher crime rates. By providing <span>real-time insights</span>, it helps identify <span>hotspots</span> and <span>trends</span> to enhance safety measures and law enforcement response.
-        </p>
+        <div className="heatmapText">
+          <h1>GET <span>HEATMAP</span> </h1>
+          <p>
+            This heatmap visually represents the distribution and <span>frequency of crimes</span> against women across different states of India, with darker areas indicating higher crime rates. By providing <span>real-time insights</span>, it helps identify <span>hotspots</span> and <span>trends</span> to enhance safety measures and law enforcement response.
+          </p>
+        </div>
+        
+        
         <div
           className="tableauPlaceholder"
           id="viz1725183408128"

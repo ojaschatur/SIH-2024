@@ -3,6 +3,7 @@ import { Route } from "react-router-dom";
 import Login from "./pages/Login";
 import Home from "./pages/Home";
 import Heatmap from "./pages/Heatmap";
+import Logs from "./pages/Logs";
 import "./App.css";
 
 function App() {
@@ -11,10 +12,10 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Login />} />
-          {/* <Route path="/:id/home" element={<Header />} />
+          {/* /* <Route path="/:id/home" element={<Header />} />
               <Route path="/:id/heatmap" element={<Header />} />
-              <Route path="/:id/map" element={<Header />} />
-              <Route path="/:id/logs" element={<Header />} /> */}
+              <Route path="/:id/map" element={<Header />} /> */}
+          <Route path="/logs" element={<Logs />} />
           <Route path="/home" element={<Home />} />
           <Route path="/heatmap" element={<Heatmap />} />
           {/* <Route path="/map" element={<Header />} />
