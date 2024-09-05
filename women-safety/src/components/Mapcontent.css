@@ -6,6 +6,7 @@
     box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1); /* 10px */
     display: flex;
     flex-direction: column;
+    color: #3d3d3d;
   }
   
   .container h2 {
