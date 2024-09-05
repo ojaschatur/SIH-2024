@@ -1,5 +1,7 @@
 const pool = require('../../database.js');
 const queries = require('./queries.js');
+
+
 const getLogs = (req, res) => {
     pool.query(queries.getLogs, (error, results) => {
         if (error) {
@@ -8,6 +10,7 @@ const getLogs = (req, res) => {
         res.status(200).json(results.rows);
     });
 };
+
 
 const addLogs = (req, res) => {
     const { timestamp, location, men_count, women_count } = req.body;

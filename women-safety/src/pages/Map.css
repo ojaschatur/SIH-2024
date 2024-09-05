@@ -14,10 +14,25 @@ color: #161616;
     -webkit-text-fill-color: transparent;
 }
 
-.p {
-font-weight: 400;
-font-size: 24px;
-line-height: 150%;
+.map-p {
+    padding-left: 20rem;
+    padding-right: 20rem;
+    margin-bottom: 20px;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 150%;
+    color: #161616;   
+}
+
+.map-h1 {
+    padding-left:20rem;
+    margin-bottom: 20px;
+    display: flex;
+    font-weight: 600;
+    font-size: 64px;
+    line-height: 120%;
+    text-transform: uppercase;
+    color: #161616;
 }
 
 
