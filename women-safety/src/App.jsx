@@ -3,6 +3,7 @@ import { Route } from "react-router-dom";
 import Login from "./pages/Login";
 import Home from "./pages/Home";
 import Heatmap from "./pages/Heatmap";
+import Map from "./pages/Map";
 import Logs from "./pages/Logs";
 import "./App.css";
 import CCTV from "./pages/CCTV";
