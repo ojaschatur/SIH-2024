@@ -1,8 +1,19 @@
-import "./Navbar.css"
-import { Link, useLocation } from "react-router-dom";
+import "./Navbar.css";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 
 function Navbar() {
-    return(
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const handleLogout = () => {
+        navigate('/');
+    }
+
+    const handleLogin = () => {
+        navigate('/');
+    }
+
+    return (
         <>
             <div className="navbar">
                 <p>DIVYA<span>DRISHTI</span></p>
@@ -14,11 +25,16 @@ function Navbar() {
                     <Link className="link" to='/logs'>Logs</Link>
                 </div>
 
-                <button className="loginBtn">Login</button>
+                {/* Conditionally render buttons */}
+                {location.pathname === '/home' && (
+                    <button className="loginBtn" onClick={handleLogin}>Login</button>
+                )}
+                {location.pathname !== '/' && location.pathname !== '/home' && (
+                    <button className="loginBtn" onClick={handleLogout}>Logout</button>
+                )}
             </div>
-        
         </>
-    )
+    );
 }
 
-export default Navbar
+export default Navbar;
