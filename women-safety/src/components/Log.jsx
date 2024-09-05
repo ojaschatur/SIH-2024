@@ -10,7 +10,10 @@ function Log() {
   useEffect(() => {
     fetch('http://localhost:3000/logs')
       .then((response) => response.json())
-      .then((data) => setLogs(data))
+      .then((data) => {
+        const sortedLogs = data.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+        setLogs(sortedLogs);
+      })
       .catch((error) => console.error('Error fetching logs:', error));
   }, []);
 
