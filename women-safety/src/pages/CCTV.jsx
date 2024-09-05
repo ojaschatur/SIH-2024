@@ -1,7 +1,11 @@
+import Navbar from "../components/Navbar";
+
 export default function CCTV() {
     return (
-        <h1>
-            CCTV
-        </h1>
+        <div>
+            <Navbar />
+
+            
+        </div>
     )
 }

@@ -21,7 +21,7 @@ function App() {
           <Route path="/home" element={<Home />} />
           <Route path="/heatmap" element={<Heatmap />} />
           <Route path="/map" element={<Map />} />
-          <Route path="/logs" element={<CCTV />} />
+          <Route path="/live-cctv" element={<CCTV />} />
           {/* <Route path="/map" element={<Header />} />
           <Route path="/logs" element={<Header />} />  */}
         </Routes>
