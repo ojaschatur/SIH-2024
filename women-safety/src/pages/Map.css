@@ -1,6 +1,5 @@
-.body {
-font-family: 'Poppins';
-font-style: normal;
+
+.map-access .h1 {
 font-weight: 600;
 font-size: 64px;
 line-height: 120%;
@@ -8,11 +7,11 @@ text-transform: uppercase;
 color: #161616;
 }
 
-.h1 {
-color: #161616;
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
-background-clip: text;
+.highlight {
+    background: #5C45FD;
+    background: linear-gradient(to right, #5C45FD 0%, #A89BFF 100%);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .p {
