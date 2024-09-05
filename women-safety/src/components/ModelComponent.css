@@ -1,0 +1,34 @@
+.Model-component-p {
+    padding-left: 20rem;
+    padding-right: 20rem;
+    margin-bottom: 20px;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 150%;
+    color: #161616;   
+}
+
+.Model-component-h1 {
+    padding-left:20rem;
+    margin-bottom: 20px;
+    display: flex;
+    font-weight: 600;
+    font-size: 64px;
+    line-height: 120%;
+    text-transform: uppercase;
+    color: #161616;
+}
+
+.highlight {
+    background: #5C45FD;
+    background: linear-gradient(to right, #5C45FD 0%, #A89BFF 100%);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.Model-component-img{
+    width: 100px;
+    height:auto;
+    border: 2px solid #000000;
+    padding-left: 20rem;
+}
