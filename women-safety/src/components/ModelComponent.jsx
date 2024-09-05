@@ -1,5 +1,6 @@
 import React from 'react';
 import './ModelComponent.css';
+import MapContent from "../components/Mapcontent";
 
 const VideoFeed = () => {
     return (
@@ -11,6 +12,7 @@ const VideoFeed = () => {
                 src="http://localhost:5000/video_feed"
                 alt="Video Feed"
             />
+            <MapContent />
         </div>
     );
 };
