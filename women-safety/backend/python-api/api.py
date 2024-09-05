@@ -1,59 +1,51 @@
-from inference.models.utils import get_roboflow_model
+from flask import Flask, jsonify, Response
 import cv2
+from inference.models.utils import get_roboflow_model
+from flask_cors import CORS
 
-# Roboflow model
+app = Flask(__name__)
+CORS(app)
+
 model_name = "gender-classification-3"
 model_version = "1"
 
-# Open the default camera (usually the built-in webcam)
-cap = cv2.VideoCapture(0)
-
-# Check if the webcam is opened successfully
-if not cap.isOpened():
-    print("Error: Could not open camera.")
-    exit()
-
-# Get Roboflow face model (this will fetch the model from Roboflow)
 model = get_roboflow_model(
-    model_id="{}/{}".format(model_name, model_version),
-    #Replace ROBOFLOW_API_KEY with your Roboflow API Key
+    model_id=f"{model_name}/{model_version}",
     api_key="tpXl0YC2sEeQpgKUfNO6"
 )
 
-while True:
-    # Capture frame-by-frame
-    ret, frame = cap.read()
+@app.route('/video_feed')
+def video_feed():
+    cap = cv2.VideoCapture(0)
 
-    # If the frame was read successfully, display it
-    if ret:
-        # Run inference on the frame
-        results = model.infer(image=frame,
-                        confidence=0.7,
-                        iou_threshold=0.7)
+    def generate_frames():
+        while True:
+            # Capture frame-by-frame
+            ret, frame = cap.read()
 
-        # Plot image with face bounding box (using opencv)
-        if results[0]:
-            for prediction in results[0].predictions:
-                x, y, w, h = map(int, [prediction.x, prediction.y, prediction.width, prediction.height])
-                # Calculate the top-left and bottom-right corners of the bounding box
-                x0, y0 = x - w // 2, y - h // 2
-                x1, y1 = x + w // 2, y + h // 2
+            if not ret:
+                break
 
-                # Draw the rectangle
-                cv2.rectangle(frame, (x0, y0), (x1, y1), (255, 255, 0), 2)
-                # Optionally, put text above the bounding box
-                cv2.putText(frame, prediction.class_name, (x0, y0 - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (255, 255, 255), 2)
+            # Run inference on the frame
+            results = model.infer(image=frame, confidence=0.7, iou_threshold=0.7)
 
-        # Display the resulting frame
-        cv2.imshow('Webcam Feed', frame)
+            # Draw bounding boxes and labels on the frame
+            if results[0]:
+                for prediction in results[0].predictions:
+                    x, y, w, h = map(int, [prediction.x, prediction.y, prediction.width, prediction.height])
+                    x0, y0 = x - w // 2, y - h // 2
+                    x1, y1 = x + w // 2, y + h // 2
+                    cv2.rectangle(frame, (x0, y0), (x1, y1), (255, 255, 0), 2)
+                    cv2.putText(frame, prediction.class_name, (x0, y0 - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (255, 255, 255), 2)
 
-        # Press 'q' to quit the video window
-        if cv2.waitKey(1) & 0xFF == ord('q'):
-            break
-    else:
-        print("Error: Could not read frame.")
-        break
+            # Encode the frame as JPEG
+            ret, buffer = cv2.imencode('.jpg', frame)
+            frame = buffer.tobytes()
 
-# When everything is done, release the capture and destroy all windows
-cap.release()
-cv2.destroyAllWindows()
+            yield (b'--frame\r\n'
+                   b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
+
+    return Response(generate_frames(), mimetype='multipart/x-mixed-replace; boundary=frame')
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000)
