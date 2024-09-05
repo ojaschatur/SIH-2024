@@ -47,7 +47,7 @@ function LoginForm() {
           GET ACCESS
         </h2>
         <p className="animation" style={{ "--i": 1, "--j": 21 }}>
-          SHERYAS COW MOO
+          (to be added later)
         </p>
       </div>
     </div>
