@@ -1,8 +1,14 @@
 import React from 'react';
 import Navbar from "../components/Navbar";
+import { useNavigate } from "react-router-dom";
 import "./Map.css";
 
+
 const MapAccess = () => {
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate("/live-cctv");
+  };
   return (
     <div className="map-access-container">
       <Navbar />
@@ -25,7 +31,7 @@ const MapAccess = () => {
               <p><strong>No. of Men:</strong> [Number]</p>
               <p><strong>Latitude:</strong> [Latitude]</p>
               <p><strong>Longitude:</strong> [Longitude]</p>
-              <button className="view-cctv-button">View Live CCTV</button>
+              <button className="view-cctv-button" onClick={handleClick}>View Live CCTV</button>
             </div>
           </div>
 

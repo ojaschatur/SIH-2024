@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import Heatmap from "./pages/Heatmap";
 import Logs from "./pages/Logs";
 import "./App.css";
+import CCTV from "./pages/CCTV";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/logs" element={<Logs />} />
           <Route path="/home" element={<Home />} />
           <Route path="/heatmap" element={<Heatmap />} />
+          <Route path="/logs" element={<CCTV />} />
           {/* <Route path="/map" element={<Header />} />
           <Route path="/logs" element={<Header />} />  */}
         </Routes>
