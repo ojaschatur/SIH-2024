@@ -10,7 +10,7 @@ const VideoFeed = () => {
             {/* Video stream */}
             <img
                 className="video-feed"
-                src="http://localhost:5000/video_feed"
+                src="http://localhost:5173/video_feed"
                 alt="Video Feed"
             />
         </div>

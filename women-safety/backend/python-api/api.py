@@ -82,21 +82,16 @@ def video_feed():
                         cv2.putText(frame, "Woman", (x0, y0 - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (255, 255, 255), 2)
                         cv2.rectangle(frame, (x0, y0), (x1, y1), (192, 15, 252), 2)
 
-            # Display the total count on the frame
             cv2.putText(frame, f"Men Count: {men_count}", (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
             cv2.putText(frame, f"Women Count: {women_count}", (10, 60), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
 
-            # Check the condition for the alert
             if women_count == 1 and men_count > 2:
-                # Only trigger the alert if 40 frames have passed since the last alert
                 if alert_frame_count >= 40:
                     cv2.putText(frame, "ALERT: LONE WOMAN", (10, 90), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)  # Red color
 
-                    # Save a screenshot of the current frame
                     screenshot_filename = f"lone_woman_{frame_count}.jpg"
                     cv2.imwrite(screenshot_filename, frame)
 
-                    # Reset the alert frame counter
                     alert_frame_count = 0
 
             # Encode the frame as JPEG
@@ -109,4 +104,4 @@ def video_feed():
     return Response(generate_frames(), mimetype='multipart/x-mixed-replace; boundary=frame')
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host='0.0.0.0', port=5173)
