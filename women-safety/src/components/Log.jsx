@@ -47,17 +47,33 @@ function Log() {
         <p>No logs available</p>
       )}
 
-      <div className="pagination">
-        {Array.from({ length: totalPages }, (_, index) => (
-          <button
-            key={index}
-            onClick={() => handlePageChange(index + 1)}
-            className={currentPage === index + 1 ? "active" : ""}
-          >
-            {index + 1}
-          </button>
-        ))}
-      </div>
+<div className="pagination">
+    <span className="arrow" onClick={() => handlePageChange(currentPage - 1)}>&larr; Previous</span>
+
+    {currentPage > 1 && <button onClick={() => handlePageChange(1)}>1</button>}
+    {currentPage > 3 && <span className="dots">...</span>}
+    
+    {Array.from({ length: totalPages }, (_, index) => {
+        if (index + 1 === currentPage || index + 1 === currentPage - 1 || index + 1 === currentPage + 1) {
+            return (
+                <button
+                    key={index}
+                    onClick={() => handlePageChange(index + 1)}
+                    className={currentPage === index + 1 ? "active" : ""}
+                >
+                    {index + 1}
+                </button>
+            );
+        }
+        return null;
+    })}
+
+    {currentPage < totalPages - 2 && <span className="dots">...</span>}
+    {currentPage < totalPages && <button onClick={() => handlePageChange(totalPages)}>{totalPages}</button>}
+
+    <span className="arrow" onClick={() => handlePageChange(currentPage + 1)}>Next &rarr;</span>
+</div>
+
     </div>
   );
 }
