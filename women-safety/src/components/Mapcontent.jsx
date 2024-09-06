@@ -5,7 +5,11 @@ import LeafletMap from "./Leaflet";
 import { useNavigate } from "react-router-dom";
 
 export default function MapContent() {
-  const [locationInfo, setLocationInfo] = useState(null);333333333333333-0
+  const [locationInfo, setLocationInfo] = useState({
+    text: "Unknown Area",
+    people: 7,  // Random default number of people
+    gesture: "Walking",  // Random default gesture
+  });
 
   const handleLocationSelected = (location) => {
     setLocationInfo(location);
@@ -52,7 +56,7 @@ export default function MapContent() {
             <p>
               Gesture: <strong>{locationInfo?.gesture || "Standing"}</strong>
             </p>
-            <button onClick={handleClick}>
+            <button onClick={handleClick} className="cctv-button">
                 Live CCTV View
             </button>
           </div>
