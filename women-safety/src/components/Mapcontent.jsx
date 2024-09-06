@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { gsap } from "gsap";
+import { useNavigate } from "react-router-dom";
 import "./mapcontent.css";
 import cctvFootage from "./photos/cctvFootage.svg";
 import LeafletMap from "./Leaflet";
 
 export default function MapContent() {
   const [locationInfo, setLocationInfo] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     // GSAP animations for the map and CCTV containers
@@ -71,6 +73,11 @@ export default function MapContent() {
             <p>
               Gesture: <strong>{locationInfo?.gesture || "Standing"}</strong>
             </p>
+
+            {/* View Live CCTV button */}
+            <button className="view-live-btn" onClick={() => navigate('/live-cctv')}>
+              View Live CCTV
+            </button>
           </div>
         </div>
       </div>
