@@ -251,7 +251,7 @@ const LeafletMap = (props) => {
       <div
         ref={mapRef}
         id="map"
-        style={{ width: "80vw", height: "600px" }}
+        style={{ width: "90vw", height: "1600px" }}
       ></div>
       <div className="button-container">
         <button

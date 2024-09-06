@@ -28,7 +28,7 @@ def overlap(box1, box2):
 
 @app.route('/video_feed')
 def video_feed():
-    cap = cv2.VideoCapture(0)
+    cap = cv2.VideoCapture("women-safety/src/assets/testing.mov")
 
     def generate_frames():
         frame_count = 0  # Initialize frame counter
