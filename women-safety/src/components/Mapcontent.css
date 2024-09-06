@@ -78,24 +78,23 @@
     margin: 0;
     margin-bottom: 1rem; /* 10px */
     font-weight: 700;
-    font-size: 3.5rem; /* 35px */
+    font-size: 2.5rem; /* 35px */
     color: #3d3d3d;
   }
   
   .cctv-info p strong {
     margin: 0;
     padding-bottom: 4rem; /* 40px */
-    font-weight: 400;
-    font-size: 2.5rem; /* 25px */
+    font-weight: 500;
+    font-size: 2rem; /* 25px */
     color: rgb(95, 95, 95);
   }
   
   .cctv-imp-info {
     margin: 0;
     padding-top: 2rem; /* 20px */
-    padding-bottom: 2rem; /* 20px */
     font-weight: 400;
-    font-size: 2.5rem; /* 25px */
+    font-size: 2rem; /* 25px */
     color: rgb(85, 85, 85);
   }
   
@@ -104,7 +103,7 @@
     margin-bottom: 1rem; /* 10px */
     font-weight: 300;
     font-size: 2rem; /* 20px */
-    color: grey;
+    color: rgb(61, 61, 61);
   }
   
   .location-info {

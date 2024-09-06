@@ -1,39 +1,20 @@
-import React, { useState, useEffect } from "react";
-import { gsap } from "gsap";
+import { useState } from "react";
 import "./mapcontent.css";
 import cctvFootage from "./photos/cctvFootage.svg";
 import LeafletMap from "./Leaflet";
+import { useNavigate } from "react-router-dom";
 
 export default function MapContent() {
-  const [locationInfo, setLocationInfo] = useState(null);
-
-  useEffect(() => {
-    // GSAP animations for the map and CCTV containers
-    gsap.fromTo(
-      ".map-container",
-      { opacity: 0, x: -50 },
-      { opacity: 1, x: 0, duration: 1, ease: "power3.out" }
-    );
-
-    gsap.fromTo(
-      ".cctv-container",
-      { opacity: 0, y: 50 },
-      { opacity: 1, y: 0, duration: 1, delay: 0.5, ease: "power3.out" }
-    );
-
-    // Animation for updating location info
-    if (locationInfo) {
-      gsap.fromTo(
-        ".cctv-info",
-        { opacity: 0 },
-        { opacity: 1, duration: 0.5, ease: "power3.out" }
-      );
-    }
-  }, [locationInfo]);
+  const [locationInfo, setLocationInfo] = useState(null);333333333333333-0
 
   const handleLocationSelected = (location) => {
     setLocationInfo(location);
   };
+
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate('/live-cctv');
+  }
 
   return (
     <div className="container">
@@ -71,6 +52,9 @@ export default function MapContent() {
             <p>
               Gesture: <strong>{locationInfo?.gesture || "Standing"}</strong>
             </p>
+            <button onClick={handleClick}>
+                Live CCTV View
+            </button>
           </div>
         </div>
       </div>
