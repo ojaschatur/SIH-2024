@@ -73,12 +73,12 @@ const LeafletMap = (props) => {
         try {
           myLocationRef.current = e.latlng;
           const placeName = await reverseGeocode(e.latlng.lat, e.latlng.lng);
- 
-          const locationData = ({
+
+          const locationData = {
             lat: e.latlng.lat.toFixed(6),
             lng: e.latlng.lng.toFixed(6),
             text: placeName,
-          });
+          };
 
           setLocationInfo(locationData);
 
@@ -248,9 +248,17 @@ const LeafletMap = (props) => {
 
   return (
     <div>
-      <div ref={mapRef} id="map" style={{ width: "80vw", height: "600px" }}></div>
+      <div
+        ref={mapRef}
+        id="map"
+        style={{ width: "90vw", height: "1600px" }}
+      ></div>
       <div className="button-container">
-        <button onClick={findNearestPoliceStation} className="button button-primary">
+        <button
+          onClick={findNearestPoliceStation}
+          className="button button-primary"
+          style={{ padding: "22px" }}
+        >
           Find Nearest Police Station
         </button>
         <button
@@ -259,6 +267,8 @@ const LeafletMap = (props) => {
             routeFromRandomPoint();
           }}
           className="button button-secondary"
+          style={{ padding: "22px" }}
+
         >
           Route from Patrolling Van
         </button>
@@ -268,7 +278,9 @@ const LeafletMap = (props) => {
           <h2>Your Location</h2>
           <p>Latitude: {locationInfo.lat}</p>
           <p>Longitude: {locationInfo.lng}</p>
-          <p><strong>{locationInfo.text}</strong></p>
+          <p>
+            <strong>{locationInfo.text}</strong>
+          </p>
         </div>
       )}
       {patrolLocation && (
@@ -276,7 +288,9 @@ const LeafletMap = (props) => {
           <h2>Patrol Location</h2>
           <p>Latitude: {patrolLocation.lat}</p>
           <p>Longitude: {patrolLocation.lng}</p>
-          <p><strong>{patrolLocation.text}</strong></p>
+          <p>
+            <strong>{patrolLocation.text}</strong>
+          </p>
         </div>
       )}
       {routes.length > 0 && (

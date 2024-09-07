@@ -1,17 +1,24 @@
-import React, { useState, useEffect } from "react";
-import { gsap } from "gsap";
-import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 import "./mapcontent.css";
 import cctvFootage from "./photos/cctvFootage.svg";
-import Leaflet from "./Leaflet";
+import LeafletMap from "./Leaflet";
+import { useNavigate } from "react-router-dom";
 
 export default function MapContent() {
-  const [locationInfo, setLocationInfo] = useState(null);
-  const navigate = useNavigate();
+  const [locationInfo, setLocationInfo] = useState({
+    text: "Unknown Area",
+    people: 7,  // Random default number of people
+    gesture: "Walking",  // Random default gesture
+  });
 
   const handleLocationSelected = (location) => {
     setLocationInfo(location);
   };
+
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate('/live-cctv');
+  }
 
   return (
     <div className="container">
@@ -49,10 +56,8 @@ export default function MapContent() {
             <p>
               Gesture: <strong>{locationInfo?.gesture || "Standing"}</strong>
             </p>
-
-            {/* View Live CCTV button */}
-            <button className="view-live-btn" onClick={() => navigate('/live-cctv')}>
-              View Live CCTV
+            <button onClick={handleClick} className="cctv-button">
+                Live CCTV View
             </button>
           </div>
         </div>

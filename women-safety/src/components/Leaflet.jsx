@@ -248,7 +248,7 @@ const LeafletMap = (props) => {
 
   return (
     <div>
-      <div ref={mapRef} id="map" style={{ width: "100%", height: "500px" }}></div>
+      <div ref={mapRef} id="map"></div>
       <div className="button-container">
         <button onClick={findNearestPoliceStation} className="button button-primary">
           Find Nearest Police Station

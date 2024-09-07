@@ -78,24 +78,23 @@
     margin: 0;
     margin-bottom: 1rem; /* 10px */
     font-weight: 700;
-    font-size: 3.5rem; /* 35px */
+    font-size: 2.5rem; /* 35px */
     color: #3d3d3d;
   }
   
   .cctv-info p strong {
     margin: 0;
     padding-bottom: 4rem; /* 40px */
-    font-weight: 400;
-    font-size: 2.5rem; /* 25px */
+    font-weight: 500;
+    font-size: 2rem; /* 25px */
     color: rgb(95, 95, 95);
   }
   
   .cctv-imp-info {
     margin: 0;
     padding-top: 2rem; /* 20px */
-    padding-bottom: 2rem; /* 20px */
     font-weight: 400;
-    font-size: 2.5rem; /* 25px */
+    font-size: 2rem; /* 25px */
     color: rgb(85, 85, 85);
   }
   
@@ -104,7 +103,7 @@
     margin-bottom: 1rem; /* 10px */
     font-weight: 300;
     font-size: 2rem; /* 20px */
-    color: grey;
+    color: rgb(61, 61, 61);
   }
   
   .location-info {
@@ -122,20 +121,6 @@
     font-size: 1em;
   }
 
-  .view-live-btn {
-    background-color: #5c45fd;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    padding: 10px 20px;
-    font-size: 1.6rem;
-    margin-top: 20px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  .cctv-button {
+    max-width: 80vw;
   }
-  
-  .view-live-btn:hover {
-    background-color: #3e32c7;
-  }
-  
