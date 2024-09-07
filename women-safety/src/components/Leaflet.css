@@ -75,3 +75,7 @@
     font-weight: 400;
     margin-left: 1rem; /* 10px */
   }
+
+  td {
+    font-size: 12px;
+  }

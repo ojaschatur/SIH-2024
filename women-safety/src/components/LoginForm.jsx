@@ -47,7 +47,6 @@ function LoginForm() {
           GET ACCESS
         </h2>
         <p className="animation" style={{ "--i": 1, "--j": 21 }}>
-          (to be added later)
         </p>
       </div>
     </div>

@@ -3,35 +3,11 @@ import { gsap } from "gsap";
 import { useNavigate } from "react-router-dom";
 import "./mapcontent.css";
 import cctvFootage from "./photos/cctvFootage.svg";
-import LeafletMap from "./Leaflet";
+import Leaflet from "./Leaflet";
 
 export default function MapContent() {
   const [locationInfo, setLocationInfo] = useState(null);
   const navigate = useNavigate();
-
-  useEffect(() => {
-    // GSAP animations for the map and CCTV containers
-    gsap.fromTo(
-      ".map-container",
-      { opacity: 0, x: -50 },
-      { opacity: 1, x: 0, duration: 1, ease: "power3.out" }
-    );
-
-    gsap.fromTo(
-      ".cctv-container",
-      { opacity: 0, y: 50 },
-      { opacity: 1, y: 0, duration: 1, delay: 0.5, ease: "power3.out" }
-    );
-
-    // Animation for updating location info
-    if (locationInfo) {
-      gsap.fromTo(
-        ".cctv-info",
-        { opacity: 0 },
-        { opacity: 1, duration: 0.5, ease: "power3.out" }
-      );
-    }
-  }, [locationInfo]);
 
   const handleLocationSelected = (location) => {
     setLocationInfo(location);
@@ -42,7 +18,7 @@ export default function MapContent() {
       <h2>Map:</h2>
       <div className="map-container">
         <div className="map-image">
-          <LeafletMap onLocationSelected={handleLocationSelected} />
+          <Leaflet onLocationSelected={handleLocationSelected} />
         </div>
       </div>
       <div className="cctv-container">

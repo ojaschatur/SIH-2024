@@ -260,7 +260,7 @@ const LeafletMap = (props) => {
           }}
           className="button button-secondary"
         >
-          Route from Patrolling unit
+          Route from Patrolling Van
         </button>
       </div>
       {locationInfo && (
